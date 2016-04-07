@@ -26,7 +26,7 @@ Markdown docs system, example below:
   Magicbook.prototype.parser = marked;
 
   var routeCallback = {
-    success: function (data) {
+    success: function routeCallbackSuccessForPrismStyle() {
       var $codes = $('pre > code');
       for (var index in $codes) {
         var $code = $($codes[index]);
@@ -46,8 +46,8 @@ Markdown docs system, example below:
   var book = new Magicbook({
     container: '.magicbook-container',
     homeUrl: 'public/doc/quick-start.md',
-    urlArgs: 'ver=0.4.0',
-    routeCallback: routeCallback
+    urlArgs: 'ver=0.5.0',
+    routeCallbackQueue: routeCallback
   });
 
   book.show();

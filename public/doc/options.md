@@ -35,21 +35,22 @@ A selector that contains navigator.
 ##### default `''`
 
 
-### navigatorCallback
-A options object that include `success`, `fail` and `finally` function to execute after navigator have been rendered. Example below:
+### navigatorCallbackQueue
+`navigatorCallbackQueue` to execute after navigator have been rendered that consist of a series of `Callback` object. `Callback` object has `success`, `fail` and `finally` function properties. Example below:
 
 ```js
-navigatorCallback: {
+// It will be transformed into Array if navigatorCallbackQueue is a Callback object
+navigatorCallbackQueue: [{
   success: function (data) {
   },
   fail: function (err) {
   },
   finally: function () {
   }
-}
+}]
 ```
 
-##### default `{}`
+##### default `[]`
 
 
 ### navigatorUrl
@@ -58,28 +59,29 @@ A path of navigator.
 ##### default `navigator.md`
 
 
-### routeCallback
-A options object that include `success`, `fail` and `finally` function to execute after content have been rendered. Example below:
+### routeCallbackQueue
+`routeCallbackQueue ` to execute after navigator have been rendered that consist of a series of `Callback` object. `Callback` object has `success`, `fail` and `finally` function properties. Example below:
 
 ```js
-navigatorCallback: {
+// It will be transformed into Array if navigatorCallbackQueue is a Callback object
+routeCallbackQueue: [{
   success: function (data) {
   },
   fail: function (err) {
   },
   finally: function () {
   }
-}
+}]
 ```
 
-##### default `{}`
+##### default `[]`
 
 
 ### urlArgs
 Extra query string arguments appended to URLs that Magicbook uses to fetch resources. Most useful to cache bust when the browser or server is not configured correctly. Example below:
 
 ```js
-urlArgs: 'ver=0.4.0'
+urlArgs: 'ver=0.5.0'
 ```
 
 ##### default `''`
