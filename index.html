@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+
+  <link rel="stylesheet" href="public/css/magicbook.css" />
+</head>
+<body>
+  <div class="magicbook-container"></div>
+
+  <script src="public/js/jquery-1.11.0.min.js"></script>
+  <script src="lib/magicbook.js"></script>
+  <script src="public/js/marked.js"></script>
+  <script>
+    var book = new magicbook({
+      container: '.magicbook-container',
+      navigatorUrl: 'navigator.md',
+      homeUrl: 'README.md',
+    });
+
+    book.potion('parse', marked);
+    book.show();
+  </script>
+</body>
+</html>
