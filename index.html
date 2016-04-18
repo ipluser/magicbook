@@ -13,14 +13,14 @@
   <script src="lib/magicbook.js"></script>
   <script src="public/js/marked.js"></script>
   <script>
-    var book = new magicbook({
+    var book = new Magicbook({
       container: '.magicbook-container',
       navigatorUrl: 'navigator.md',
       homeUrl: 'README.md',
       urlArgs: 'ver=0.4.0',
     });
 
-    book.potion('parse', marked);
+    book.potion('parser', marked);
     book.show();
   </script>
 </body>

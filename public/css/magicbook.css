@@ -6,8 +6,8 @@ body {
 }
 
 .magicbook-container,
-.magicbook-navigator,
-.magicbook-content {
+.magicbook-navigator-wrap,
+.magicbook-content-wrap {
   height: 100%;
 }
 
@@ -19,7 +19,7 @@ body {
   box-sizing: border-box;
 }
 
-.magicbook-container > .magicbook-navigator {
+.magicbook-container > .magicbook-navigator-wrap {
   position: absolute;
   top: 0;
   left: 0;
@@ -28,7 +28,33 @@ body {
   border-right: 2px solid #EEE;
 }
 
-.magicbook-container > .magicbook-content {
+.magicbook-container > .magicbook-content-wrap {
+  position: relative;
   margin-left: 280px;
-  padding: 15px 12px;
+  padding: 15px 12px 80px;
 }
+
+.magicbook-container .magicbook-error {
+  color: red;
+}
+
+.magicbook-container .magicbook-btn {
+  padding: 4px 12px;
+  line-height: 24px;
+}
+
+.magicbook-flip {
+  position: absolute;
+  left: 0;
+  bottom: 20px;
+  width: 100%;
+  text-align: center;
+}
+
+.magicbook-flip > .magicbook-flip__pre {
+}
+
+.magicbook-flip > .magicbook-flip__next {
+  margin-left: 20px;
+}
+
