@@ -4,7 +4,8 @@
   <meta charset="UTF-8">
   <title></title>
 
-  <link rel="stylesheet" href="public/css/magicbook.css" />
+  <link rel="stylesheet" type="text/css" href="public/css/magicbook.css" />
+  <link rel="stylesheet" type="text/css" href="public/css/prism-okaidia.css" />
 </head>
 <body>
   <div class="magicbook-container"></div>
@@ -12,6 +13,7 @@
   <script src="public/js/jquery-1.11.0.min.js"></script>
   <script src="lib/magicbook.js"></script>
   <script src="public/js/marked.js"></script>
+  <script src="public/js/prism.js"></script>
   <script>
     var book = new Magicbook({
       container: '.magicbook-container',
@@ -20,7 +22,33 @@
       urlArgs: 'ver=0.4.0',
     });
 
+    marked.setOptions({
+      highlight: function (code, lang) {
+        return Prism.highlight(code, Prism.languages[lang]);
+      }
+    });
+
     book.potion('parser', marked);
+
+    var route = book.potion('route');
+    book.potion('route', function (url) {
+      route.call(this, url, function () {
+        var $codes = $('pre > code');
+        for (var index in $codes) {
+          var $code = $($codes[index]);
+          var codeClass = $code.attr('class');
+
+          if (!codeClass) {
+            return ;
+          }
+
+          codeClass = codeClass.replace(/^|\s+lang\-/g, ' language-');
+          $code.attr('class', codeClass);
+          $code.parent().addClass(codeClass);
+        }
+      });
+    });
+
     book.show();
   </script>
 </body>
