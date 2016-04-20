@@ -45,6 +45,34 @@ body {
   margin-left: 340px;
 }
 
+@media (max-width: 992px) {
+  .magicbook-container > .magicbook-navigator-wrap {
+    width: 260px;
+    padding: 30px 15px;
+  }
+
+  .magicbook-container > .magicbook-content-wrap {
+    margin-left: 260px;
+    padding: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .magicbook-container > .magicbook-navigator-wrap {
+    position: static;
+    width: 100%;
+    height: initial;
+    border-right: none;
+    border-bottom: 2px solid #EEE;
+  }
+
+  .magicbook-container > .magicbook-content-wrap {
+    margin: 0;
+    padding: 30px 15px 45px;
+    height: initial;
+  }
+}
+
 .magicbook-container *,
 .magicbook-navigator-wrap *,
 .magicbook-content-wrap * {
