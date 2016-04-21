@@ -20,24 +20,8 @@
   <script src="public/js/marked.js"></script>
   <script src="public/js/prism.js"></script>
   <script>
-    var book = new Magicbook({
-      container: '.magicbook-container',
-      navigatorUrl: 'navigator.md',
-      homeUrl: 'README.md',
-      urlArgs: 'ver=0.4.0',
-    });
-
-    marked.setOptions({
-      highlight: function (code, lang) {
-        return Prism.highlight(code, Prism.languages[lang]);
-      }
-    });
-
-    book.potion('parser', marked);
-
-    var route = book.potion('route');
-    book.potion('route', function (url) {
-      route.call(this, url, function () {
+    var routeCallback = {
+      success: function (data) {
         var $codes = $('pre > code');
         for (var index in $codes) {
           var $code = $($codes[index]);
@@ -51,9 +35,24 @@
           $code.attr('class', codeClass);
           $code.parent().addClass(codeClass);
         }
-      });
+      }
+    };
+
+    var book = new Magicbook({
+      container: '.magicbook-container',
+      navigatorUrl: 'navigator.md',
+      homeUrl: 'README.md',
+      urlArgs: 'ver=0.4.0',
+      routeCallback: routeCallback,
     });
 
+    marked.setOptions({
+      highlight: function (code, lang) {
+        return Prism.highlight(code, Prism.languages[lang]);
+      }
+    });
+
+    book.potion('parser', marked);
     book.show();
   </script>
 </body>
