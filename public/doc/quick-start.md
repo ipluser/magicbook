@@ -1,4 +1,8 @@
 ## Quick Start
+An lightweight and scalable docs system for markdown, text or other.
+
+Markdown docs system, example below:
+
 ### Import Dependencies
 To use [Magicbook](https://github.com/ipluser/magicbook), you’ll need to make sure both the Magicbook and jQuery scripts are included.
 ```html
