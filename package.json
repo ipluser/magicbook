@@ -2,7 +2,11 @@
   "name": "magicbook",
   "version": "0.4.0",
   "description": "An lightweight and scalable docs system for markdown.",
+  "author": "ipluser",
   "main": "lib/magicbook.js",
+  "scripts": {
+    "lint": "eslint lib"
+  },
   "keywords": [
     "magicbook",
     "markdown",
@@ -10,6 +14,12 @@
     "magic",
     "book"
   ],
-  "author": "ipluser",
+  "files": [
+    "lib"
+  ],
+  "devDependencies": {
+    "eslint": "^2.8.0"
+  },
+  "repository": "https://github.com/ipluser/magicbook.git",
   "license": "MIT"
 }
