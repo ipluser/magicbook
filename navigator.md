@@ -7,3 +7,4 @@ License: [MIT](https://github.com/ipluser/magicbook/blob/gh-pages/LICENSE)
 
 ### Guide
 - [Quick Start](#public/doc/quick-start.md)
+- [Options](#public/doc/options.md)
