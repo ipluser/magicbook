@@ -1,5 +1,5 @@
 ## magicbook
-An lightweight and scalable docs system for markdown.
+An lightweight and scalable docs system for markdown, text or other.
 
 ## Quick Start
 [Get started in 1 minutes.](http://ipluser.github.io/magicbook/)
