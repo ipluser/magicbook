@@ -1,9 +1,9 @@
 ## Methods
-### drawFlip
-Drawing previous and next flip.
-
 ### drawNavigator
 Fetching and rendering navigator resource.
+
+### drawUtilities
+Drawing previous/next flip, etc.
 
 ### execute
 A function to execute in show operation, it is a executor of handler.
