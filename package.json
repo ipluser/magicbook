@@ -5,7 +5,9 @@
   "author": "ipluser",
   "main": "lib/magicbook.js",
   "scripts": {
-    "lint": "eslint lib"
+    "lint": "eslint lib",
+    "precommit": "npm run lint",
+    "prepush": "npm run lint"
   },
   "keywords": [
     "magicbook",
@@ -18,7 +20,8 @@
     "lib"
   ],
   "devDependencies": {
-    "eslint": "^2.8.0"
+    "eslint": "^2.8.0",
+    "husky": "^0.11.4"
   },
   "repository": "https://github.com/ipluser/magicbook.git",
   "license": "MIT"
