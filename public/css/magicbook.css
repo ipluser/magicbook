@@ -87,22 +87,6 @@ body {
   margin-top: 0 !important;
 }
 
-.magicbook-flip {
-  position: fixed;
-  left: 0;
-  bottom: 20px;
-  padding-left: 340px;
-  width: 100%;
-  text-align: center;
-}
-
-.magicbook-flip > .magicbook-flip__pre {
-}
-
-.magicbook-flip > .magicbook-flip__next {
-  margin-left: 20px;
-}
-
 .magicbook-container .magicbook-error,
 .magicbook-navigator-wrap .magicbook-error,
 .magicbook-content-wrap .magicbook-error {

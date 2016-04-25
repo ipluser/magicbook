@@ -29,12 +29,6 @@ A path of home.
 ##### default `README.md`
 
 
-### keys
-Do you want to add keyboard shortcut support to your Magicbook? This can be set to either `true` or `false`.
-
-##### default `true`
-
-
 ### navigator
 A selector that contains navigator.
 
@@ -89,14 +83,4 @@ urlArgs: 'ver=0.4.0'
 ```
 
 ##### default `''`
-
-
-### utilities
-Do you want to add previous/next flip to your Magicbook? Example below:
-```js
-utilities: {
-  flip: true  // default true
-}
-```
-
 
