@@ -88,9 +88,10 @@ body {
 }
 
 .magicbook-flip {
-  position: absolute;
+  position: fixed;
   left: 0;
   bottom: 20px;
+  padding-left: 340px;
   width: 100%;
   text-align: center;
 }

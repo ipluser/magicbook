@@ -41,9 +41,9 @@ To use [Magicbook](https://github.com/ipluser/magicbook), you’ll need to make 
 
   var book = new Magicbook({
     container: '.magicbook-container',
-    navigatorUrl: 'navigator.md',
+    homeUrl: 'public/doc/quick-start.md',
     urlArgs: 'ver=0.4.0',
-    routeCallback: routeCallback,
+    routeCallback: routeCallback
   });
 
   marked.setOptions({
