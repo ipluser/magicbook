@@ -23,6 +23,6 @@
     "eslint": "^2.8.0",
     "husky": "^0.11.4"
   },
-  "repository": "https://github.com/ipluser/magicbook.git",
+  "repository": "https://github.com/magicbookjs/magicbook",
   "license": "MIT"
 }
