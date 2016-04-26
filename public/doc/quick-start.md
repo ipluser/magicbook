@@ -1,6 +1,17 @@
 ## Quick Start
 An lightweight and scalable docs system for markdown, text or other. Example below:
 
+### Installing
+```
+bower install magicbookjs
+```
+
+or
+
+```
+npm install magicbookjs
+```
+
 ### Import Dependencies
 To use **Magicbook**, you’ll need to make sure both the Magicbook and jQuery scripts are included.
 ```html
