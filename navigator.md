@@ -12,8 +12,8 @@ License: [MIT](https://github.com/ipluser/magicbook/blob/gh-pages/LICENSE)
 	- [Markdown](#public/doc/usage/markdown.md)
 
 ### Others
-- [Github](https://github.com/magicbookjs/magicbook)
-- [Issues](https://github.com/magicbookjs/magicbook/issues)
-- [Commits](https://github.com/magicbookjs/magicbook/commits/gh-pages)
+- [Github](https://github.com/ipluser/magicbook)
+- [Issues](https://github.com/ipluser/magicbook/issues)
+- [Commits](https://github.com/ipluser/magicbook/commits/gh-pages)
 - Contributing
 	- [Commit Message Format](https://github.com/angular/angular.js/blob/master/CONTRIBUTING.md#commit-message-format)
