@@ -1,0 +1,19 @@
+{
+  "name": "magicbook",
+  "version": "0.5.0",
+  "description": "An lightweight and scalable docs system for markdown, text or other.",
+  "homepage": "http://magicbookjs.github.io/magicbook/",
+  "keywords": [
+    "magicbook",
+    "markdown",
+    "docs",
+    "magic",
+    "book"
+  ],
+  "dependencies": {
+    "jquery": ">= 1.11.0"
+  },
+  "authors": [
+    "Plus <ipluser@163.com>"
+  ]
+}
