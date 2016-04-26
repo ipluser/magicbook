@@ -2,10 +2,10 @@ Markdown docs system, example below:
 
 ### Import Dependencies
 ```html
-  <link rel="stylesheet" type="text/css" href="public/css/magicbook.css" />
+  <link rel="stylesheet" type="text/css" href="dist/magicbook.min.css" />
   <link rel="stylesheet" type="text/css" href="public/css/prism-okaidia.css" />
   <script src="public/js/jquery-1.11.0.min.js"></script>
-  <script src="lib/magicbook.js"></script>
+  <script src="dist/magicbook.min.js"></script>
   <script src="public/js/marked.js"></script>
   <script src="public/js/prism.js"></script>
 ```

@@ -42,10 +42,13 @@ A selector that contains navigator.
 // It will be transformed into Array if navigatorCallbackQueue is a Callback object
 navigatorCallbackQueue: [{
   success: function (data) {
+    // todo
   },
   fail: function (err) {
+    // todo
   },
   finally: function () {
+    // todo
   }
 }]
 ```
@@ -66,10 +69,13 @@ A path of navigator.
 // It will be transformed into Array if navigatorCallbackQueue is a Callback object
 routeCallbackQueue: [{
   success: function (data) {
+    // todo
   },
   fail: function (err) {
+    // todo
   },
   finally: function () {
+    // todo
   }
 }]
 ```
