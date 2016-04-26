@@ -3,9 +3,10 @@
   "version": "0.5.0",
   "description": "An lightweight and scalable docs system for markdown, text or other.",
   "author": "ipluser",
-  "main": "lib/magicbook.js",
+  "main": "dist/magicbook.js",
   "scripts": {
     "lint": "eslint lib",
+    "build": "gulp",
     "precommit": "npm run lint",
     "prepush": "npm run lint"
   },
@@ -21,6 +22,10 @@
   ],
   "devDependencies": {
     "eslint": "^2.8.0",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^2.0.6",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^1.5.3",
     "husky": "^0.11.4"
   },
   "repository": "https://github.com/magicbookjs/magicbook",
