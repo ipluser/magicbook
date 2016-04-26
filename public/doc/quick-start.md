@@ -2,13 +2,13 @@
 An lightweight and scalable docs system for markdown, text or other. Example below:
 
 ### Installing
-```
+```markup
 bower install magicbookjs
 ```
 
 or
 
-```
+```markup
 npm install magicbookjs
 ```
 
