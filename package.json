@@ -18,9 +18,6 @@
     "magic",
     "book"
   ],
-  "files": [
-    "lib"
-  ],
   "devDependencies": {
     "eslint": "^2.8.0",
     "gulp": "^3.9.1",
