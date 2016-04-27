@@ -26,6 +26,7 @@ body {
 
 .magicbook-navigator-wrap {
   padding: 45px 30px;
+  overflow: auto;
 }
 
 .magicbook-content-wrap {
