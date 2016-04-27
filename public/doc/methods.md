@@ -10,6 +10,16 @@ Get and set handler that add extra initialization to Magicbook.
 | options | a options object that includes `priority` property that determines the order of execution. Under normal, the 0 is primary  action, the 1 is Magicbooks own, the 2, 3, ... is others. |
 
 
+### normalizeImageUrl
+Normalizing image's url that based on base file.
+
+##### parameters
+| name     | description      |
+|----------|------------------|
+| baseFile | relative file of image |
+| url		 | url of file      |
+
+
 ### normalizeUrl
 Normalizing url that will handle baseUrl, urlArgs and other before fetch resource.
 
