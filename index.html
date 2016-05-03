@@ -10,17 +10,17 @@
   <title>magicbook - Docs system for markdown, text or other.</title>
 
   <link rel="stylesheet" type="text/css" href="dist/magicbook.min.css" />
+  <link rel="stylesheet" type="text/css" href="plugins/markdown/css/awesome.min.css" />
   <link rel="stylesheet" type="text/css" href="public/css/prism-okaidia.css" />
 </head>
 <body>
-  <div class="magicbook-container"></div>
-
   <script src="public/js/jquery-1.11.0.min.js"></script>
   <script src="dist/magicbook.min.js"></script>
   <script src="public/js/marked.js"></script>
   <script src="public/js/prism.js"></script>
   <script>
     marked.setOptions({
+      langPrefix: 'language-',
       highlight: function (code, lang) {
         return Prism.highlight(code, Prism.languages[lang]);
       }
@@ -39,17 +39,14 @@
             return ;
           }
 
-          codeClass = codeClass.replace(/^|\s+lang\-/g, ' language-');
-          $code.attr('class', codeClass);
           $code.parent().addClass(codeClass);
         }
       }
     };
 
     var book = Magicbook({
-      container: '.magicbook-container',
       homeUrl: 'public/doc/quick-start.md',
-      urlArgs: 'ver=0.5.2',
+      urlArgs: 'ver=0.5.3',
       routeCallbackQueue: routeCallback
     });
 

@@ -17,4 +17,15 @@ gulp.task('build-css', function () {
       .pipe(gulp.dest('dist'));
 });
 
-gulp.task('default', ['build-script', 'build-css']);
+gulp.task('build-plugins-markdown-awesome-css', function () {
+  return gulp.src('plugins/markdown/css/awesome.css')
+      .pipe(cleanCSS({compatibility: 'ie8'}))
+      .pipe(rename({extname: '.min.css'}))
+      .pipe(gulp.dest('plugins/markdown/css'));
+});
+
+gulp.task('default', [
+  'build-script',
+  'build-css',
+  'build-plugins-markdown-awesome-css'
+]);

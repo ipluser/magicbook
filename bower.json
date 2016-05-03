@@ -1,6 +1,6 @@
 {
   "name": "magicbook",
-  "version": "0.5.2",
+  "version": "0.5.3",
   "description": "An lightweight and scalable docs system for markdown, text or other.",
   "homepage": "http://ipluser.github.io/magicbook/",
   "keywords": [
