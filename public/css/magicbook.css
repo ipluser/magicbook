@@ -26,19 +26,16 @@ body {
 
 .magicbook-navigator-wrap {
   padding: 45px 30px;
-  overflow: auto;
+  overflow-y: scroll;
 }
 
 .magicbook-content-wrap {
-  padding: 45px 45px;
-}
-
-.magicbook-content {
-  padding-bottom: 45px;
+  padding: 45px 45px 60px;
+  overflow-y: scroll;
 }
 
 .magicbook-container > .magicbook-navigator-wrap {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 340px;
@@ -46,8 +43,10 @@ body {
 }
 
 .magicbook-container > .magicbook-content-wrap {
-  position: relative;
-  margin-left: 340px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 340px;
 }
 
 .magicbook-container *,
@@ -88,8 +87,8 @@ body {
   }
 
   .magicbook-container > .magicbook-content-wrap {
-    margin-left: 260px;
-    padding: 30px;
+    left: 260px;
+    padding: 30px 30px 60px;
   }
 }
 
@@ -103,8 +102,9 @@ body {
   }
 
   .magicbook-container > .magicbook-content-wrap {
-    margin: 0;
-    padding: 30px 15px 45px;
+    position: static;
+    left: 0;
+    padding: 30px 15px 60px;
     height: initial;
   }
 }
