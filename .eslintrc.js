@@ -1,7 +1,8 @@
 module.exports = {
   "env": {                           // http://eslint.org/docs/user-guide/configuring.html#specifying-environments
     "browser": true,                 // browser global variables
-    "jquery": true                   // jquery global variables
+    "jquery": true,                  // jquery global variables
+    "node": true                     // node global variables
   },
   "rules": {
     /**
