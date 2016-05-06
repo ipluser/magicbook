@@ -3,7 +3,7 @@
   marked.setOptions({
     langPrefix: 'language-',
     highlight: function highlight(code, lang) {
-      return Prism.highlight(code, Prism.languages[lang]);
+      return Prism.highlight(code, Prism.languages[normalizeLang(lang)]);
     }
   });
 
@@ -18,6 +18,14 @@
     return new Magicbook(cfg);
   });
 
+  function normalizeLang(lang) {
+    if (!lang || !Prism.languages[lang]) {
+      return 'bash';
+    }
+
+    return lang;
+  }
+
   function routeCallbackSuccessForPrismStyle() {
     var $codes = $('pre > code');
     var index;
@@ -25,13 +33,10 @@
 
     for (index = 0, len = $codes.length; index < len; index++) {
       var $code = $($codes[index]);
-      var codeClass = $code.attr('class');
+      var codeClass = $code.attr('class') || 'language-bash';
 
-      if (!codeClass) {
-        return;
-      }
-
-      $code.parent().addClass(codeClass);
+      Magicbook.addClassName($code, codeClass);
+      Magicbook.addClassName($code.parent(), codeClass);
     }
   }
 })(window, jQuery, marked, Prism, Magicbook);  // eslint-disable-line
