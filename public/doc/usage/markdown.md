@@ -2,13 +2,14 @@ Markdown docs system, example below:
 
 ### Import Dependencies
 ```html
+  <link rel="stylesheet" type="text/css" href="public/css/prism-okaidia.css" />
   <link rel="stylesheet" type="text/css" href="dist/magicbook.min.css" />
   <link rel="stylesheet" type="text/css" href="plugins/markdown/css/awesome.min.css" />
-  <link rel="stylesheet" type="text/css" href="public/css/prism-okaidia.css" />
+
   <script src="public/js/jquery-1.11.0.min.js"></script>
-  <script src="dist/magicbook.min.js"></script>
   <script src="public/js/marked.js"></script>
   <script src="public/js/prism.js"></script>
+  <script src="dist/magicbook.min.js"></script>
 ```
 
 ### HTML
@@ -25,7 +26,7 @@ Markdown docs system, example below:
     }
   });
 
-  Magicbook.prototype.parser = marked;
+  Magicbook.potion.parser = marked;
 
   var routeCallback = {
     success: function routeCallbackSuccessForPrismStyle() {
@@ -52,3 +53,7 @@ Markdown docs system, example below:
 
   book.show();
 ```
+
+### Awesome factory
+Easy to get a markdown instance with [awesome plugins](#public/doc/plugins/markdown/js/awesome.md)
+
