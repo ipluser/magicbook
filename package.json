@@ -1,11 +1,11 @@
 {
   "name": "magicbookjs",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "An lightweight and scalable docs system for markdown, text or other.",
   "author": "ipluser",
   "main": "dist/magicbook.js",
   "scripts": {
-    "lint": "eslint lib",
+    "lint": "eslint --ignore-pattern *.min.js lib plugins/**/*.js gulpfile.js",
     "build": "npm run lint && gulp",
     "precommit": "npm run lint",
     "prepush": "npm run lint"
