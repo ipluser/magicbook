@@ -29,3 +29,6 @@ License: [MIT](https://github.com/ipluser/magicbook/blob/gh-pages/LICENSE)
 - [Commits](https://github.com/ipluser/magicbook/commits/gh-pages)
 - Contributing
 	- [Commit Message Format](https://github.com/angular/angular.js/blob/master/CONTRIBUTING.md#commit-message-format)
+
+### Friend Links
+- [speechless](http://ipluser.github.io/speechless/)
