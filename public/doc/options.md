@@ -24,7 +24,7 @@ Do you want to see log message in Magicbook? This can be set to either `true` or
 
 
 ### homeUrl
-A path of home. 
+A path of home.
 
 ##### default `README.md`
 
@@ -83,6 +83,12 @@ routeCallbackQueue: [{
 ##### default `[]`
 
 
+### title
+Page's title.
+
+##### default `'magicbook - An lightweight and scalable docs system for markdown, text or other.'`
+
+
 ### urlArgs
 Extra query string arguments appended to URLs that Magicbook uses to fetch resources. Most useful to cache bust when the browser or server is not configured correctly. Example below:
 
@@ -91,4 +97,3 @@ urlArgs: 'ver=0.5.0'
 ```
 
 ##### default `''`
-
