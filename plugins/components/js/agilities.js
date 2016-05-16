@@ -24,12 +24,6 @@
     return urls;
   }
 
-  function getCurrentUrl(defaultUrl) {
-    var url = globalLocation.hash || defaultUrl;
-
-    return url.replace(/^#/, '');
-  }
-
   /**
    * draw button of scroll to top
    * @param {Object|boolean} cfg => true/false or {
@@ -135,7 +129,7 @@
 
       function flip(type) {
         var _type = type || 'next';
-        var curUrl = getCurrentUrl(homeUrl);
+        var curUrl = self.getCurrentDocUrl();
         var curIndex = urls.indexOf(curUrl);
 
         if (curIndex === -1) {

@@ -1,4 +1,11 @@
 ## Methods
+### getCurrentDocUrl
+Get current document's url.
+
+##### parameters
+none
+
+
 ### handler
 Get and set handler that add extra initialization to Magicbook.
 
