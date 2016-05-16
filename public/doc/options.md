@@ -62,6 +62,24 @@ A path of navigator.
 ##### default `navigator.md`
 
 
+### parseFilters
+`parseFilters ` to execute before/after parser that consist of a series of `Filter` object. `Filter` object has `before` and `after`function properties. Example below:
+
+```js
+// It will be transformed into Array if it is a Filter object
+parseFilters: [{
+  before: function (source) {
+    // todo
+  },
+  after: function (source) {
+    // todo
+  }
+}]
+```
+
+##### default `[]`
+
+
 ### routeCallbackQueue
 `routeCallbackQueue ` to execute after navigator have been rendered that consist of a series of `Callback` object. `Callback` object has `success`, `fail` and `finally` function properties. Example below:
 

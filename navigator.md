@@ -17,6 +17,8 @@ License: [MIT](https://github.com/ipluser/magicbook/blob/gh-pages/LICENSE)
 			- [agilities](#public/doc/plugins/components/css/agilities.md)
 		- js
 			- [agilities](#public/doc/plugins/components/js/agilities.md)
+		- js
+			- [magicbook-plugin-include](#public/doc/plugins/components/js/magicbook-plugin-include.md)
 	- markdown
 		- css
 			- [awesome](#public/doc/plugins/markdown/css/awesome.md)

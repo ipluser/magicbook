@@ -1,6 +1,6 @@
 {
   "name": "magicbookjs",
-  "version": "0.7.1",
+  "version": "0.8.0",
   "description": "An lightweight and scalable docs system for markdown, text or other.",
   "author": "ipluser",
   "main": "dist/magicbook.js",
