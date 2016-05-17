@@ -39,7 +39,7 @@ A selector that contains navigator.
 `navigatorCallbackQueue` to execute after navigator have been rendered that consist of a series of `Callback` object. `Callback` object has `success`, `fail` and `finally` function properties. Example below:
 
 ```js
-// It will be transformed into Array if navigatorCallbackQueue is a Callback object
+// It will be parsed to Array if not Array
 navigatorCallbackQueue: [{
   success: function (data) {
     // todo
@@ -66,7 +66,7 @@ A path of navigator.
 `parseFilters ` to execute before/after parser that consist of a series of `Filter` object. `Filter` object has `before` and `after`function properties. Example below:
 
 ```js
-// It will be transformed into Array if it is a Filter object
+// It will be parse to Array if not Array
 parseFilters: [{
   before: function (source) {
     // todo
@@ -84,7 +84,7 @@ parseFilters: [{
 `routeCallbackQueue ` to execute after navigator have been rendered that consist of a series of `Callback` object. `Callback` object has `success`, `fail` and `finally` function properties. Example below:
 
 ```js
-// It will be transformed into Array if navigatorCallbackQueue is a Callback object
+// It will be parsed into Array if not Array
 routeCallbackQueue: [{
   success: function (data) {
     // todo

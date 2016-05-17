@@ -3,13 +3,58 @@
   var TAG_NAME = 'include';
   var defaults = {
     openTag: '{%',
-    closeTag: '%}'
+    closeTag: '%}',
+    normalizes: []
   };
 
   function tempate(cfg) {
     var options = $.extend({}, defaults, cfg);
     var openTag = options.openTag;
     var closeTag = options.closeTag;
+    var normalizes = Magicbook.parseArray(options.normalizes);
+
+    function prune(data, next) {
+      data.url = data.url.replace(/^('|")/, '').replace(/('|")$/, '');
+      next();
+    }
+
+    function resolve(data) {
+      var url = data.url;
+
+      if (!url.match(/^(https?|ftp):\/\//g)) {
+        data.url = this.relativeCurrentUrl(url);
+      }
+    }
+
+    normalizes.unshift(prune);
+    normalizes.push(resolve);
+
+    function runNormalizes(data) {
+      var len = normalizes.length;
+      var index = 0;
+      var isContinue = false;
+
+      function next() {
+        index++;
+        isContinue = true;
+      }
+
+      while (index < len) {
+        var normalize = normalizes[index];
+
+        isContinue = false;
+
+        if (normalize.call(this, data, next)) {
+          break;
+        }
+
+        if (!isContinue) {
+          break;
+        }
+      }
+
+      return data;
+    }
 
     function parse(chunk) {
       var tokens = chunk.trim().replace(/\s+/g, ' ').split(' ');
@@ -17,16 +62,15 @@
       var len = tokens.length;
 
       if (len <= 1 || tag !== TAG_NAME) {
-        return openTag + chunk + closeTag;  //
+        return openTag + chunk + closeTag;
       }
 
       var content;
       var url = tokens[1];
-      var _url = url.length > 2 ? url.substring(1, url.length - 1) : url;
-      _url = _url.search(/\:\/\//) !== -1 ? _url : this.relativeCurrentUrl(_url);
+      var result = runNormalizes.call(this, { url: url });
 
       $.ajax({
-        url: _url,
+        url: result.url,
         async: false,
         success: function templateIncludeTagSuccess(data) {
           content = data;
@@ -70,11 +114,12 @@
 
   Magicbook.potion.enableIncludeTag = function enableIncludeTag(cfg) {
     var self = this;
+    var templateIncludeTag = tempate(cfg);
 
     self.config.parseFilters.push({
-      before: tempate(cfg)
+      before: templateIncludeTag
     });
 
-    self.templateIncludeTag = tempate(cfg);
+    self.templateIncludeTag = templateIncludeTag;
   };
 })(window, jQuery, Magicbook);  // eslint-disable-line
