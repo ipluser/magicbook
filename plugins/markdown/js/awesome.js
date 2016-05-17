@@ -1,26 +1,8 @@
 ;(function (global, $, marked, Prism, Magicbook) {  // eslint-disable-line
 
-  marked.setOptions({
-    langPrefix: 'language-',
-    highlight: function highlight(code, lang) {
-      return Prism.highlight(code, Prism.languages[normalizeLang(lang)]);
-    }
-  });
-
-  Magicbook.potion.parser = marked;
-  Magicbook.customizeMarkdown('awesome', function MarkdownAwesomeFactory(cfg) {
-    var routeCallbackQueue = Magicbook.parseArray(cfg.routeCallbackQueue);
-    routeCallbackQueue.push({
-      success: routeCallbackSuccessForPrismStyle
-    });
-    cfg.routeCallbackQueue = routeCallbackQueue;
-
-    return new Magicbook(cfg);
-  });
-
   function normalizeLang(lang) {
     if (!lang || !Prism.languages[lang]) {
-      return 'bash';
+      return 'bash'; // not import bash js
     }
 
     return lang;
@@ -39,4 +21,22 @@
       Magicbook.addClassName($code.parent(), codeClass);
     }
   }
+
+  marked.setOptions({
+    langPrefix: 'language-',
+    highlight: function highlight(code, lang) {
+      return Prism.highlight(code, Prism.languages[normalizeLang(lang)]);
+    }
+  });
+
+  Magicbook.potion.parser = marked;
+  Magicbook.customizeMarkdown('awesome', function MarkdownAwesomeFactory(cfg) {
+    var routeCallbackQueue = Magicbook.parseArray(cfg.routeCallbackQueue);
+    routeCallbackQueue.push({
+      success: routeCallbackSuccessForPrismStyle
+    });
+    cfg.routeCallbackQueue = routeCallbackQueue;
+
+    return new Magicbook(cfg);
+  });
 })(window, jQuery, marked, Prism, Magicbook);  // eslint-disable-line

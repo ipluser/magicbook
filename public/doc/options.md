@@ -24,7 +24,7 @@ Do you want to see log message in Magicbook? This can be set to either `true` or
 
 
 ### homeUrl
-A path of home. 
+A path of home.
 
 ##### default `README.md`
 
@@ -39,7 +39,7 @@ A selector that contains navigator.
 `navigatorCallbackQueue` to execute after navigator have been rendered that consist of a series of `Callback` object. `Callback` object has `success`, `fail` and `finally` function properties. Example below:
 
 ```js
-// It will be transformed into Array if navigatorCallbackQueue is a Callback object
+// It will be parsed to Array if not Array
 navigatorCallbackQueue: [{
   success: function (data) {
     // todo
@@ -62,11 +62,29 @@ A path of navigator.
 ##### default `navigator.md`
 
 
+### parseFilters
+`parseFilters ` to execute before/after parser that consist of a series of `Filter` object. `Filter` object has `before` and `after`function properties. Example below:
+
+```js
+// It will be parse to Array if not Array
+parseFilters: [{
+  before: function (source) {
+    // todo
+  },
+  after: function (source) {
+    // todo
+  }
+}]
+```
+
+##### default `[]`
+
+
 ### routeCallbackQueue
 `routeCallbackQueue ` to execute after navigator have been rendered that consist of a series of `Callback` object. `Callback` object has `success`, `fail` and `finally` function properties. Example below:
 
 ```js
-// It will be transformed into Array if navigatorCallbackQueue is a Callback object
+// It will be parsed into Array if not Array
 routeCallbackQueue: [{
   success: function (data) {
     // todo
@@ -83,6 +101,12 @@ routeCallbackQueue: [{
 ##### default `[]`
 
 
+### title
+Page's title.
+
+##### default `'magicbook - An lightweight and scalable docs system for markdown, text or other.'`
+
+
 ### urlArgs
 Extra query string arguments appended to URLs that Magicbook uses to fetch resources. Most useful to cache bust when the browser or server is not configured correctly. Example below:
 
@@ -91,4 +115,3 @@ urlArgs: 'ver=0.5.0'
 ```
 
 ##### default `''`
-

@@ -10,13 +10,19 @@
     flip: true
   };
 
-  Magicbook.potion.agilities = function agilities(cfg) {
-    var self = this;
-    var config = $.extend({}, defaults, cfg);
+  function getNavigatorUrls($navigators, defaultUrl) {
+    var index;
+    var len;
+    var urls = [];
 
-    drawScrollTop.call(self, config.scrollTop);
-    drawFlip.call(self, config.flip);
-  };
+    for (index = 0, len = $navigators.length; index < len; index++) {
+      var $navigator = $($navigators[index]);
+      var url = $navigator.attr('href').replace(/^#/, '') || defaultUrl;
+      urls.push(url);
+    }
+
+    return urls;
+  }
 
   /**
    * draw button of scroll to top
@@ -123,7 +129,7 @@
 
       function flip(type) {
         var _type = type || 'next';
-        var curUrl = getCurrentUrl(homeUrl);
+        var curUrl = self.getCurrentDocUrl();
         var curIndex = urls.indexOf(curUrl);
 
         if (curIndex === -1) {
@@ -185,23 +191,11 @@
     });
   }
 
-  function getNavigatorUrls($navigators, defaultUrl) {
-    var index;
-    var len;
-    var urls = [];
+  Magicbook.potion.agilities = function agilities(cfg) {
+    var self = this;
+    var config = $.extend({}, defaults, cfg);
 
-    for (index = 0, len = $navigators.length; index < len; index++) {
-      var $navigator = $($navigators[index]);
-      var url = $navigator.attr('href').replace(/^#/, '') || defaultUrl;
-      urls.push(url);
-    }
-
-    return urls;
-  }
-
-  function getCurrentUrl(defaultUrl) {
-    var url = globalLocation.hash || defaultUrl;
-
-    return url.replace(/^#/, '');
-  }
+    drawScrollTop.call(self, config.scrollTop);
+    drawFlip.call(self, config.flip);
+  };
 })(window, jQuery, Magicbook);  // eslint-disable-line

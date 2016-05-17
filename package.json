@@ -1,6 +1,6 @@
 {
   "name": "magicbookjs",
-  "version": "0.7.1",
+  "version": "0.8.0",
   "description": "An lightweight and scalable docs system for markdown, text or other.",
   "author": "ipluser",
   "main": "dist/magicbook.js",
@@ -20,6 +20,7 @@
   ],
   "devDependencies": {
     "eslint": "^2.8.0",
+    "eslint-config-es5": "^0.5.0",
     "gulp": "^3.9.1",
     "gulp-clean-css": "^2.0.6",
     "gulp-rename": "^1.2.2",
