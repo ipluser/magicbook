@@ -9,7 +9,7 @@ To use magicbook-plugin-include, you’ll need to make sure `magicbook` are incl
 ```
 
 #### To use include tag
-```markup
+```
 {% include './test.md' %}
 ```
 
