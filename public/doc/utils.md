@@ -1,4 +1,6 @@
 ## Utils
+There are some utils methods to facilitates magicbook.
+
 ### addClassName
 Append class name to specified selector.
 
@@ -47,6 +49,13 @@ Returns a boolean indicating whether the object is javascript array object.
 | name    | description    |
 |---------|----------------|
 | obj     | object to test |
+
+
+### isBodyScroller
+Returns a boolean indicating whether the body has scroll bar.
+
+##### parameters
+none
 
 
 ### isFunction
@@ -113,4 +122,3 @@ Returns a boolean indicating whether the object `toString()` is specified string
 |---------|----------------|
 | obj     | object to test |
 | toStr   | specified string to compare |
-

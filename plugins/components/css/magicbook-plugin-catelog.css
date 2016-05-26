@@ -1,0 +1,29 @@
+.catelog-items-wrap {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  padding: 20px;
+  background-color: #e8e8e8;
+  color: #4078c0;
+}
+
+.magicbook-content-wrap .catelog-items {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.magicbook-content-wrap .catelog-item {
+}
+
+.magicbook-content-wrap .catelog-item__link {
+  cursor: pointer;
+}
+
+.magicbook-content-wrap .catelog-item__link:hover {
+  text-decoration: underline;
+}
+
+.catelog-item__number {
+  cursor: pointer;
+}

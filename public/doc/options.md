@@ -1,4 +1,6 @@
 ## Options
+There are some options to customise magicbook.
+
 ### baseUrl
 The root path to use for all resources lookups.
 
@@ -15,12 +17,6 @@ A selector that contains navigator and content.
 A selector that contains content.
 
 ##### default `''`
-
-
-### debug
-Do you want to see log message in Magicbook? This can be set to either `true` or `false`.
-
-##### default `false`
 
 
 ### homeUrl

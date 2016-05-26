@@ -5,9 +5,11 @@
 
   var globalLocation = global.location;
 
+  var addClassName = Magicbook.addClassName;
+
   var defaults = {
     scrollTop: true,
-    flip: true
+    turnPage: true
   };
 
   function getNavigatorUrls($navigators, defaultUrl) {
@@ -25,14 +27,14 @@
   }
 
   /**
-   * draw button of scroll to top
+   * initialize scrollTop
    * @param {Object|boolean} cfg => true/false or {
    *   selector: user customize scrollToTop button
    *   label: label of button
    * }
    * @returns {void}
    */
-  function drawScrollTop(cfg) {
+  function initScrollTop(cfg) {
     if (!cfg) {
       return;
     }
@@ -46,32 +48,19 @@
     var selector = config.selector;
 
     var $scrollToTop = selector && $(selector) || $('<div>' + config.label + '</div>');
-    var $body = $('body');
-    var $navigatorWrap = self.$navigatorWrap;
-    var $contentWrap = self.$contentWrap;
 
-    var scrollToTop = Magicbook.potion.scrollToTop = function scrollToTop(toContent) {
-      $contentWrap.scrollTop() !== 0 && $contentWrap.scrollTop(0) || $body.scrollTop(toContent && $navigatorWrap.height() || 0);
-    };
-
-    Magicbook.addClassName($scrollToTop, PREFIX_CLASS + 'scroll-top');
-    Magicbook.addClassName($scrollToTop, COMMON_BUTTON_CLASS_NAME);
+    addClassName($scrollToTop, PREFIX_CLASS + 'scroll-top');
+    addClassName($scrollToTop, COMMON_BUTTON_CLASS_NAME);
 
     $scrollToTop.on('click', function scrollTopClickEvent() {
-      scrollToTop();
-    });
-
-    self.config.routeCallbackQueue.push({
-      success: function routeCallbackForScrollToContent() {
-        scrollToTop(true);
-      }
+      self.moveTo();
     });
 
     !selector && self.$container.append($scrollToTop);
   }
 
   /**
-   * draw button of flip
+   * initialize turnPage
    * @param {Object|boolean} cfg => true/false or {
    *   prev: {
    *     label: label of prev button
@@ -84,7 +73,7 @@
    * }
    * @returns {void}
    */
-  function drawFlip(cfg) {
+  function initTurnPage(cfg) {
     if (!cfg) {
       return;
     }
@@ -99,6 +88,7 @@
     };
 
     var self = this;
+    var $contentWrap = self.$contentWrap;
     var config = $.extend({}, defaults, defaultsCfg);
     var homeUrl = self.config.homeUrl;
     var prevSelector = config.prev.selector;
@@ -106,31 +96,47 @@
     var nextSelector = config.next.selector;
     var nextLabel = config.next.label;
 
-    function navigatorCallbackSuccessForDrawFlip() {
+    function navigatorCallbackSuccessForInitTurnPage() {
       var $navigators = $('a[href^=#]');
-      var urls = getNavigatorUrls($navigators, homeUrl);
-      var urlsLength = urls.length;
+      var navUrls = getNavigatorUrls($navigators, homeUrl);
+      var navUrlsLength = navUrls.length;
 
-      if (!urlsLength) {
+      if (!navUrlsLength) {
         return;
       }
 
       var $prev = prevSelector && $(prevSelector) || $('<div>' + prevLabel + '</div>');
       var $next = nextSelector && $(nextSelector) || $('<div>' + nextLabel + '</div>');
 
-      function toggleFlip(curIndex) {
-        if (curIndex < 0 || curIndex >= urlsLength) {
+      addClassName($prev, PREFIX_CLASS + 'turn-page__prev');
+      addClassName($prev, COMMON_BUTTON_CLASS_NAME);
+      addClassName($next, PREFIX_CLASS + 'turn-page__next');
+      addClassName($next, COMMON_BUTTON_CLASS_NAME);
+
+      function validIndex(index) {
+        return index >= 0 && index < navUrlsLength;
+      }
+
+      function reset() {
+        var url = self.getCurrentDocUrl();
+        var index = navUrls.indexOf(url);
+
+        if (!validIndex(index)) {
           return;
         }
 
-        (curIndex !== 0) && $prev.show() || $prev.hide();
-        (curIndex !== urlsLength - 1) && $next.show() || $next.hide();
+        (index === 0) && $prev.hide() || $prev.show();
+        (index === navUrlsLength - 1) && $next.hide() || $next.show();
+
+        $navigators.removeClass('selected');
+        var $nav = $('a[href="#' + url + '"]');
+        addClassName($nav.length && $nav || $('a[href="#"]'), 'selected');
       }
 
-      function flip(type) {
+      function turnPage(type) {
         var _type = type || 'next';
         var curUrl = self.getCurrentDocUrl();
-        var curIndex = urls.indexOf(curUrl);
+        var curIndex = navUrls.indexOf(curUrl);
 
         if (curIndex === -1) {
           return;
@@ -138,56 +144,48 @@
 
         (_type === 'next' && curIndex++) || (_type === 'prev' && curIndex--);
 
-        if (_type !== 'initialize' && curIndex >= 0 && curIndex < urlsLength) {
-          globalLocation.hash = urls[curIndex] || '';
+        if (!validIndex(curIndex)) {
+          return;
         }
 
-        toggleFlip(curIndex);
+        globalLocation.hash = navUrls[curIndex];
       }
 
-      var prev = Magicbook.potion.prev = function prev() {
-        flip('prev');
-      };
+      function prev() {
+        turnPage('prev');
+      }
 
-      var next = Magicbook.potion.next = function next() {
-        flip();
-      };
+      function next() {
+        turnPage();
+      }
 
-      Magicbook.addClassName($prev, PREFIX_CLASS + 'prev');
-      Magicbook.addClassName($prev, COMMON_BUTTON_CLASS_NAME);
-      Magicbook.addClassName($next, PREFIX_CLASS + 'next');
-      Magicbook.addClassName($next, COMMON_BUTTON_CLASS_NAME);
-
-      $prev.on('click', function prevClickEvent() {
-        prev();
-      });
-
-      $next.on('click', function nextClickEvent() {
-        next();
-      });
+      $prev.on('click', prev);
+      $next.on('click', next);
 
       if (!prevSelector || !nextSelector) {
-        var $flip = $('<div></div>');
+        var $turnPage = $('<div></div>');
 
-        Magicbook.addClassName($flip, PREFIX_CLASS + 'flip-wrap');
-        !prevSelector && $flip.append($prev);
-        !nextSelector && $flip.append($next);
+        addClassName($turnPage, PREFIX_CLASS + 'turn-page-wrap');
+        !prevSelector && $turnPage.append($prev);
+        !nextSelector && $turnPage.append($next);
 
-        self.$container.append($flip);
+        self.$container.append($turnPage);
       }
 
-      $navigators.on('click', function navigatorClickEvent() {
-        var url = ($(this).attr('href') || '').replace(/#/, '') || homeUrl;
+      reset();
+      self.moveTo({ selector: $contentWrap });
 
-        toggleFlip(urls.indexOf(url));
-        globalLocation.hash = url;
+      $(global).on('hashchange', function hashchangeForReset() {
+        reset();
+        self.moveTo({ selector: $contentWrap });
       });
 
-      flip('initialize');
+      Magicbook.potion.prev = prev;
+      Magicbook.potion.next = next;
     }
 
     self.config.navigatorCallbackQueue.push({
-      success: navigatorCallbackSuccessForDrawFlip
+      success: navigatorCallbackSuccessForInitTurnPage
     });
   }
 
@@ -195,7 +193,7 @@
     var self = this;
     var config = $.extend({}, defaults, cfg);
 
-    drawScrollTop.call(self, config.scrollTop);
-    drawFlip.call(self, config.flip);
+    initScrollTop.call(self, config.scrollTop);
+    initTurnPage.call(self, config.turnPage);
   };
 })(window, jQuery, Magicbook);  // eslint-disable-line

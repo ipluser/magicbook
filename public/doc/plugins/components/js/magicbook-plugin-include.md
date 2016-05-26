@@ -15,14 +15,14 @@ To use magicbook-plugin-include, you’ll need to make sure `magicbook` are incl
 
 #### Initialize
 ```js
+  {magicbook instance}.enableIncludeTag();
+
+  // or
+
   {magicbook instance}.enableIncludeTag({
     openTag: '{%',
     closeTag: '%}'
   });
-
-  // or
-
-  {magicbook instance}.enableIncludeTag();
 ```
 
 ### configuration
@@ -32,7 +32,7 @@ Close controls for include tag.
 ##### default
 `%}`
 
-### normalizes
+#### normalizes
 `normalizes`, consist of a series of `Normalize` function that will normalize url. Example below:
 
 ```js

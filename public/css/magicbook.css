@@ -38,7 +38,7 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  width: 340px;
+  width: 400px;
   border-right: 2px solid #EEE;
 }
 
@@ -46,7 +46,7 @@ body {
   position: absolute;
   top: 0;
   right: 0;
-  left: 340px;
+  left: 400px;
 }
 
 .magicbook-container *,
@@ -82,12 +82,12 @@ body {
 
 @media (max-width: 992px) {
   .magicbook-container > .magicbook-navigator-wrap {
-    width: 260px;
+    width: 300px;
     padding: 30px 15px;
   }
 
   .magicbook-container > .magicbook-content-wrap {
-    left: 260px;
+    left: 300px;
     padding: 30px 30px 60px;
   }
 }

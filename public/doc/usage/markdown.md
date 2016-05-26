@@ -1,4 +1,5 @@
-Markdown docs system, example below:
+## Build A Markdown Document System
+Easy to build a markdown document system with `Magicbook`.
 
 ### Import Dependencies
 ```html
@@ -56,4 +57,3 @@ Markdown docs system, example below:
 
 ### Awesome factory
 Easy to get a markdown instance with [awesome plugins](#public/doc/plugins/markdown/js/awesome.md)
-

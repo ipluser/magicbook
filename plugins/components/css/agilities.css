@@ -1,3 +1,16 @@
+.magicbook-navigator li > a[href^="#"] {
+  color: #000;
+}
+
+.magicbook-navigator li > a:hover {
+  color: #4078c0;
+}
+
+.magicbook-navigator a[href^="#"].selected {
+  text-decoration: underline;
+  color: #4078c0;
+}
+
 .magicbook-agilities-button {
   display: inline-block;
   -webkit-border-radius: 4px;
@@ -20,7 +33,7 @@
   z-index: 9;
 }
 
-.magicbook-agilities-flip-wrap {
+.magicbook-agilities-turn-page-wrap {
   position: fixed;
   right: 0;
   bottom: 20px;
@@ -28,11 +41,11 @@
   text-align: center;
 }
 
-.magicbook-agilities-prev {
+.magicbook-agilities-turn-page__prev {
   margin-right: 20px;
 }
 
-.magicbook-agilities-next {
+.magicbook-agilities-turn-page__next {
 }
 
 @media (max-width: 992px) {
@@ -40,7 +53,7 @@
     top: 30px;
     right: 30px;
   }
-  .magicbook-agilities-flip-wrap {
+  .magicbook-agilities-turn-page-wrap {
     left: 260px;
   }
 }
@@ -49,7 +62,7 @@
   .magicbook-agilities-scroll-top {
     right: 15px;
   }
-  .magicbook-agilities-flip-wrap {
+  .magicbook-agilities-turn-page-wrap {
     left: 0;
   }
 }
