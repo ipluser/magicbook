@@ -1,7 +1,7 @@
 ## agilities.js
-The **agilities** provides some infrastructure that includes **scroll to top**, **flip**, etc.
+The **agilities** provides some infrastructure that includes **scroll to top**, **turn the page**.
 
-### usage
+### Usage
 #### Import Dependencies
 To use agilities, you’ll need to make sure `magicbook` are included.
 ```html
@@ -10,33 +10,33 @@ To use agilities, you’ll need to make sure `magicbook` are included.
   <script src="plugins/components/js/agilities.min.js"></script>
 ```
 
-#### To use
+#### To Use
 ```js
-  {magicbook instance}.agilities({
-    scrollTop: true,
-    flip: true
-  });
+  {magicbook instance}.agilities();
 
   // or
 
-  {magicbook instance}.agilities();
+  {magicbook instance}.agilities({
+    scrollTop: true,
+    turnPage: true
+  });
 ```
 
-### configuration
-#### flip
-It provides flip prev/next function. 'flip' default `true`, you also specify `true/false`, `prev` or `next` property.
+### Configuration
+#### turnPage
+It provides turn the page function. `turnPage` default `true`, you also specify `true/false`, `prev` or `next` property.
 Example below:
 
 ```js
   {magicbook instance}.agilities({
-    flip: {
+    turnPage: {
       prev: {
         label: 'prev'               // specified name of prev button if not specified selecotor
-        selector: '.prev-selector'  // specified selector to flip previous
+        selector: '.prev-selector'  // specified selector to turn the previous page
       },
       next: {
         label: 'next'               // specified name of next button if not specified selecotor
-        selector: '.prev-selector'  // specified selector to flip next
+        selector: '.prev-selector'  // specified selector to turn the next page
       }
     }
   });
@@ -55,18 +55,10 @@ Example below:
   });
 ```
 
-### methods
+### Methods
 #### next
 It provides next page turning.
 
 #### prev
 It provides prev page turning.
-
-#### scrollToTop
-It provides scroll to top.
-
-##### parameters
-| name      | description      |
-|-----------|------------------|
-| toContent | `boolean` whether the scroll to content's top when pixel of screen < `768px` |
 
