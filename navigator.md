@@ -9,20 +9,23 @@ License: [MIT](https://github.com/ipluser/magicbook/blob/gh-pages/LICENSE)
 - [Options](#public/doc/options.md)
 - [Methods](#public/doc/methods.md)
 - [Utils](#public/doc/utils.md)
-- Usage
-	- [How to create a markdown magicbook](#public/doc/usage/markdown.md)
-- plugins
-	- components
-		- css
+- [Usage](#public/doc/usage/usage.md)
+	- [build a markdown document system](#public/doc/usage/markdown.md)
+- [plugins](#public/doc/plugins/plugins.md)
+	- [components](#public/doc/plugins/components/components.md)
+		- [css](#public/doc/plugins/components/css/css.md)
 			- [agilities](#public/doc/plugins/components/css/agilities.md)
-		- js
+			- [magicbook-plugin-catelog](#public/doc/plugins/components/css/magicbook-plugin-catelog.md)
+			- [magicbook-plugin-number](#public/doc/plugins/components/css/magicbook-plugin-number.md)
+		- [js](#public/doc/plugins/components/js/js.md)
 			- [agilities](#public/doc/plugins/components/js/agilities.md)
-		- js
+			- [magicbook-plugin-catelog](#public/doc/plugins/components/js/magicbook-plugin-catelog.md)
 			- [magicbook-plugin-include](#public/doc/plugins/components/js/magicbook-plugin-include.md)
-	- markdown
-		- css
+			- [magicbook-plugin-number](#public/doc/plugins/components/js/magicbook-plugin-number.md)
+	- [markdown](#public/doc/plugins/markdown/markdown.md)
+		- [css](#public/doc/plugins/markdown/css/css.md)
 			- [awesome](#public/doc/plugins/markdown/css/awesome.md)
-		- js
+		- [js](#public/doc/plugins/markdown/js/js.md)
 			- [awesome](#public/doc/plugins/markdown/js/awesome.md)
 
 ### Others
