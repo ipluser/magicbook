@@ -2,7 +2,7 @@
 
   function normalizeLang(lang) {
     if (!lang || !Prism.languages[lang]) {
-      return 'bash'; // not import bash js
+      return 'bash';
     }
 
     return lang;

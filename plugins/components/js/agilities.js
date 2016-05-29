@@ -69,7 +69,8 @@
    *   next: {
    *     label: label of next button
    *     selector: user customize next button
-   *   }
+   *   },
+   *   gap: gap between top and content
    * }
    * @returns {void}
    */
@@ -84,17 +85,19 @@
       },
       next: {
         label: 'next'
-      }
+      },
+      gap: 0
     };
 
     var self = this;
     var $contentWrap = self.$contentWrap;
-    var config = $.extend({}, defaults, defaultsCfg);
+    var config = $.extend({}, defaultsCfg, cfg);
     var homeUrl = self.config.homeUrl;
     var prevSelector = config.prev.selector;
     var prevLabel = config.prev.label;
     var nextSelector = config.next.selector;
     var nextLabel = config.next.label;
+    var gap = config.gap;
 
     function navigatorCallbackSuccessForInitTurnPage() {
       var $navigators = $('a[href^=#]');
@@ -173,11 +176,11 @@
       }
 
       reset();
-      self.moveTo({ selector: $contentWrap });
+      self.moveTo({ selector: $contentWrap, gap: gap });
 
       $(global).on('hashchange', function hashchangeForReset() {
         reset();
-        self.moveTo({ selector: $contentWrap });
+        self.moveTo({ selector: $contentWrap, gap: gap });
       });
 
       Magicbook.potion.prev = prev;
