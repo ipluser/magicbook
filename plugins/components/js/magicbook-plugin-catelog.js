@@ -13,6 +13,7 @@
     var catelogSelector = config.catelogSelector;
     var duration = config.duration;
     var gap = config.gap;
+    var idPrefix = Math.random().toString(36).substr(2);
 
     return function navigatorCallbackSucessForCarryCatelog() {
       var self = this;
@@ -30,15 +31,21 @@
 
       for (var index = 0; index < len; index++) {
         var $item = $($catelog[index]);
+        var id = $item.attr('id');
+
+        if (!id || id === '-') {
+          id = idPrefix + index;
+          $item.attr('id', id);
+        }
 
         catelogHtml += '<li class="catelog-item"><a class="catelog-item__link" data-identifier="' +
-            $item.attr('id') + '"><b class="catelog-item__number">' + (index + 1) + '. </b>' +
+            id + '"><b class="catelog-item__number">' + (index + 1) + '. </b>' +
             $item.text() + '</a></li>';
       }
       catelogHtml += '</ul></div>';
 
       locationSelector && $(locationSelector).length && $(locationSelector).after(catelogHtml)
-          || $content.before(catelogHtml);
+      || $content.before(catelogHtml);
 
       $('.catelog-items-wrap').off('click').on('click', '.catelog-item__link', function moveToAssignedCatelog() {
         self.moveTo({
