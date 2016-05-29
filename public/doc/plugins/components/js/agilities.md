@@ -23,6 +23,19 @@ To use agilities, you’ll need to make sure `magicbook` are included.
 ```
 
 ### Configuration
+#### scrollTop
+It provides scroll to top function. `scrollTop` default `true`, you also specify `true/false`, `selector` or `label` property.
+Example below:
+
+```js
+  {magicbook instance}.agilities({
+    scrollTop: {
+      label: 'scrollToTop'    // specified name of button if not specified selecotor, it default **scrollToTop**
+      selector: '.selector',  // specified selector to scroll to top
+    }
+  });
+```
+
 #### turnPage
 It provides turn the page function. `turnPage` default `true`, you also specify `true/false`, `prev` or `next` property.
 Example below:
@@ -37,20 +50,8 @@ Example below:
       next: {
         label: 'next'               // specified name of next button if not specified selecotor
         selector: '.prev-selector'  // specified selector to turn the next page
-      }
-    }
-  });
-```
-
-#### scrollTop
-It provides scroll to top function. `scrollTop` default `true`, you also specify `true/false`, `selector` or `label` property.
-Example below:
-
-```js
-  {magicbook instance}.agilities({
-    scrollTop: {
-      label: 'scrollToTop'    // specified name of button if not specified selecotor, it default **scrollToTop**
-      selector: '.selector',  // specified selector to scroll to top
+      },
+      gap: 0                        // gap between top and the assigned block
     }
   });
 ```
