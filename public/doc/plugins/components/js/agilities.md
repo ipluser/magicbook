@@ -43,6 +43,7 @@ Example below:
 ```js
   {magicbook instance}.agilities({
     turnPage: {
+      selector: 'ul li > *:first-child'  // specified selector to navigator's text
       prev: {
         label: 'prev'               // specified name of prev button if not specified selecotor
         selector: '.prev-selector'  // specified selector to turn the previous page
@@ -58,8 +59,8 @@ Example below:
 
 ### Methods
 #### next
-It provides next page turning.
+It provides next page turning. It will trigger `turnNext` event in `$container`.
 
 #### prev
-It provides prev page turning.
+It provides prev page turning. It will trigger `turnPrev` event in `$container`.
 
