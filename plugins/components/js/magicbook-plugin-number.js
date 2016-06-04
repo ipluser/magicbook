@@ -1,5 +1,7 @@
 ;(function (global, $, Magicbook) {  // eslint-disable-line
 
+  var addClassName = Magicbook.addClassName;
+
   var defaults = {
     selector: 'ul'
   };
@@ -18,18 +20,19 @@
         var parentNumber = $item.parent().parent('li').attr('data-number');
         var currentNumber = (parentNumber ? (parentNumber + '.') : '') + startNumber++;
         var numberHtml = '<b>' + currentNumber + '. </b>';
-        var $link = $item.children('a');
+        var $text = $item.children(':first');
         var $list = $item.children('ul');
 
+        addClassName($text, 'navigator-number__text');
+        $text.prepend(numberHtml);
         $item.attr('data-number', currentNumber);
-        $link.length && $link.prepend(numberHtml) || $item.prepend(numberHtml);
 
         if ($list.length) {
-          numberList($($list));
+          numberList($list);
         }
       }
 
-      index && Magicbook.addClassName($ul, 'navigator-number');
+      index && addClassName($ul, 'navigator-number');
     }
 
     return function navigatorCallbackSucessForNumberNavigator() {
