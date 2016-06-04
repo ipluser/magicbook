@@ -1,6 +1,7 @@
 ;(function (global, $, Magicbook) {  // eslint-disable-line
 
   var TAG_NAME = 'include';
+
   var defaults = {
     openTag: '{%',
     closeTag: '%}',
