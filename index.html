@@ -15,6 +15,7 @@
   <link rel="stylesheet" type="text/css" href="plugins/components/css/agilities.min.css" />
   <link rel="stylesheet" type="text/css" href="plugins/components/css/magicbook-plugin-number.min.css" />
   <link rel="stylesheet" type="text/css" href="plugins/components/css/magicbook-plugin-catelog.min.css" />
+  <link rel="stylesheet" type="text/css" href="plugins/components/css/magicbook-plugin-collapse.min.css" />
 </head>
 <body>
   <script src="public/js/jquery-1.11.0.min.js"></script>
@@ -26,14 +27,20 @@
   <script src="plugins/markdown/js/awesome.min.js"></script>
   <script src="plugins/components/js/magicbook-plugin-number.min.js"></script>
   <script src="plugins/components/js/magicbook-plugin-catelog.min.js"></script>
+  <script src="plugins/components/js/magicbook-plugin-collapse.min.js"></script>
   <script>
     var book = Magicbook.markdown('awesome', {
       homeUrl: 'public/doc/quick-start.md',
-      urlArgs: 'ver=0.10.1'
+      urlArgs: 'ver=0.11.0'
     });
 
-    book.agilities();
+    book.agilities({
+      turnPage: {
+        selector: '#-magicbook- > a, #guide+ul li > a'
+      }
+    });
     book.numberNavigator({ selector: '#guide+ul' });
+    book.collapseNavigator({ selector: '#guide+ul', expand: false });
     book.carryCatelog({ locationSelector: '.magicbook-content h2+p' });
     book.show();
   </script>
