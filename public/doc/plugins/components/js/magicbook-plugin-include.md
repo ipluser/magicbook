@@ -1,7 +1,7 @@
 ## magicbook-plugin-include.js
 Support `include` template tag in document.
 
-### usage
+### Usage
 #### Import Dependencies
 Make sure `magicbook` are included.
 ```html
@@ -25,7 +25,7 @@ Make sure `magicbook` are included.
   });
 ```
 
-### configuration
+### Configuration
 #### closeTag
 Close controls for include tag.
 
@@ -61,7 +61,7 @@ Open controls for include tag.
 `{%`
 
 
-### methods
+### Methods
 #### templateIncludeTag
 Parse include tag.
 
