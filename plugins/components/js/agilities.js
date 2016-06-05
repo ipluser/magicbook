@@ -1,29 +1,35 @@
 ;(function (global, $, Magicbook) {  // eslint-disable-line
 
+  var globalLocation = global.location;
+  var magicbookProto = Magicbook.potion;
+  var addClassName = Magicbook.addClassName;
+
   var PREFIX_CLASS = 'magicbook-agilities-';
   var COMMON_BUTTON_CLASS_NAME = PREFIX_CLASS + 'button';
-
-  var globalLocation = global.location;
-
-  var addClassName = Magicbook.addClassName;
 
   var defaults = {
     scrollTop: true,
     turnPage: true
   };
 
-  function getNavigatorUrls($navigators, defaultUrl) {
+  function formatPageData($pages, homeUrl) {
+    var len = $pages.length;
     var index;
-    var len;
-    var urls = [];
+    var pages = [];
 
-    for (index = 0, len = $navigators.length; index < len; index++) {
-      var $navigator = $($navigators[index]);
-      var url = $navigator.attr('href').replace(/^#/, '') || defaultUrl;
-      urls.push(url);
+    for (index = 0; index < len; index++) {
+      var $page = $($pages[index]);
+      var key =  Magicbook.randomString() + index;
+      var url = $page.attr('href') || '';
+
+      $page.attr('data-pageKey', key);
+      pages.push({
+        key: key,
+        url: (url === '#') && homeUrl || url.replace('#', '')
+      });
     }
 
-    return urls;
+    return pages;
   }
 
   /**
@@ -47,7 +53,7 @@
     var config = $.extend({}, defaultsCfg, cfg);
     var selector = config.selector;
 
-    var $scrollToTop = selector && $(selector) || $('<div>' + config.label + '</div>');
+    var $scrollToTop = selector && $(selector) || $('<button>' + config.label + '</button>');
 
     addClassName($scrollToTop, PREFIX_CLASS + 'scroll-top');
     addClassName($scrollToTop, COMMON_BUTTON_CLASS_NAME);
@@ -62,6 +68,7 @@
   /**
    * initialize turnPage
    * @param {Object|boolean} cfg => true/false or {
+   *   selector: navigator's text
    *   prev: {
    *     label: label of prev button
    *     selector: user customize prev button
@@ -80,6 +87,7 @@
     }
 
     var defaultsCfg = {
+      selector: 'ul li > *:first-child',
       prev: {
         label: 'prev'
       },
@@ -90,9 +98,10 @@
     };
 
     var self = this;
+    var $container = self.$container;
     var $contentWrap = self.$contentWrap;
-    var config = $.extend({}, defaultsCfg, cfg);
     var homeUrl = self.config.homeUrl;
+    var config = $.extend({}, defaultsCfg, cfg);
     var prevSelector = config.prev.selector;
     var prevLabel = config.prev.label;
     var nextSelector = config.next.selector;
@@ -100,46 +109,65 @@
     var gap = config.gap;
 
     function navigatorCallbackSuccessForInitTurnPage() {
-      var $navigators = $('a[href^=#]');
-      var navUrls = getNavigatorUrls($navigators, homeUrl);
-      var navUrlsLength = navUrls.length;
+      var $pages = $(config.selector);
+      var pagesData = formatPageData($pages, homeUrl);
+      var pagesLen = pagesData.length;
 
-      if (!navUrlsLength) {
+      if (!pagesLen) {
         return;
       }
 
-      var $prev = prevSelector && $(prevSelector) || $('<div>' + prevLabel + '</div>');
-      var $next = nextSelector && $(nextSelector) || $('<div>' + nextLabel + '</div>');
+      var $prev = prevSelector && $(prevSelector) || $('<button>' + prevLabel + '</button>');
+      var $next = nextSelector && $(nextSelector) || $('<button>' + nextLabel + '</button>');
 
+      addClassName($pages, PREFIX_CLASS + 'turn-page__text');
       addClassName($prev, PREFIX_CLASS + 'turn-page__prev');
       addClassName($prev, COMMON_BUTTON_CLASS_NAME);
       addClassName($next, PREFIX_CLASS + 'turn-page__next');
       addClassName($next, COMMON_BUTTON_CLASS_NAME);
 
       function validIndex(index) {
-        return index >= 0 && index < navUrlsLength;
+        return index >= 0 && index < pagesLen;
+      }
+
+      function pageIndexOf(page) {
+        var _page = page || '';
+
+        for (var index = 0; index < pagesLen; index++) {
+          var pageData = pagesData[index];
+
+          if ((_page.url && pageData.url === _page.url)
+              || (_page.key && pageData.key === _page.key)) {
+            return index;
+          }
+        }
+        return -1;
+      }
+
+      function resetSelectedPage(page) {
+        $pages.removeClass('selected');
+        var $page = $pages.filter('[data-pageKey="' + page.key + '"]');
+        addClassName($page.length && $page || $('a[href="#"]'), 'selected');
       }
 
       function reset() {
         var url = self.getCurrentDocUrl();
-        var index = navUrls.indexOf(url);
+        var index = pageIndexOf({ url: url });
 
         if (!validIndex(index)) {
           return;
         }
 
         (index === 0) && $prev.hide() || $prev.show();
-        (index === navUrlsLength - 1) && $next.hide() || $next.show();
+        (index === pagesLen - 1) && $next.hide() || $next.show();
 
-        $navigators.removeClass('selected');
-        var $nav = $('a[href="#' + url + '"]');
-        addClassName($nav.length && $nav || $('a[href="#"]'), 'selected');
+        resetSelectedPage(pagesData[index]);
       }
 
       function turnPage(type) {
         var _type = type || 'next';
-        var curUrl = self.getCurrentDocUrl();
-        var curIndex = navUrls.indexOf(curUrl);
+        var $page = $pages.filter('.selected');
+        var curIndex = pageIndexOf({ key: $page.attr('data-pageKey') });
 
         if (curIndex === -1) {
           return;
@@ -151,15 +179,24 @@
           return;
         }
 
-        globalLocation.hash = navUrls[curIndex];
+        var nextPage = pagesData[curIndex];
+        var nextUrl = nextPage.url;
+
+        if (nextUrl) {
+          globalLocation.hash = nextUrl;
+        }
+
+        resetSelectedPage(nextPage);
       }
 
       function prev() {
         turnPage('prev');
+        $container.trigger('turnPrev');
       }
 
       function next() {
         turnPage();
+        $container.trigger('turnNext');
       }
 
       $prev.on('click', prev);
@@ -183,8 +220,8 @@
         self.moveTo({ selector: $contentWrap, gap: gap });
       });
 
-      Magicbook.potion.prev = prev;
-      Magicbook.potion.next = next;
+      magicbookProto.prev = prev;
+      magicbookProto.next = next;
     }
 
     self.config.navigatorCallbackQueue.push({
@@ -192,7 +229,7 @@
     });
   }
 
-  Magicbook.potion.agilities = function agilities(cfg) {
+  magicbookProto.agilities = function agilities(cfg) {
     var self = this;
     var config = $.extend({}, defaults, cfg);
 

@@ -1,5 +1,5 @@
 ## [magicbook](#)
-An lightweight and scalable docs system for markdown.
+An lightweight and scalable docs system for markdown, text or other.
 
 Author: [ipluser](https://github.com/ipluser)
 
@@ -16,10 +16,12 @@ License: [MIT](https://github.com/ipluser/magicbook/blob/gh-pages/LICENSE)
 		- [css](#public/doc/plugins/components/css/css.md)
 			- [agilities](#public/doc/plugins/components/css/agilities.md)
 			- [magicbook-plugin-catelog](#public/doc/plugins/components/css/magicbook-plugin-catelog.md)
+			- [magicbook-plugin-collapse](#public/doc/plugins/components/css/magicbook-plugin-collapse.md)
 			- [magicbook-plugin-number](#public/doc/plugins/components/css/magicbook-plugin-number.md)
 		- [js](#public/doc/plugins/components/js/js.md)
 			- [agilities](#public/doc/plugins/components/js/agilities.md)
 			- [magicbook-plugin-catelog](#public/doc/plugins/components/js/magicbook-plugin-catelog.md)
+			- [magicbook-plugin-collapse](#public/doc/plugins/components/js/magicbook-plugin-collapse.md)
 			- [magicbook-plugin-include](#public/doc/plugins/components/js/magicbook-plugin-include.md)
 			- [magicbook-plugin-number](#public/doc/plugins/components/js/magicbook-plugin-number.md)
 	- [markdown](#public/doc/plugins/markdown/markdown.md)

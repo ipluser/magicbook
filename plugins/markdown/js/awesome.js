@@ -1,5 +1,7 @@
 ;(function (global, $, marked, Prism, Magicbook) {  // eslint-disable-line
 
+  var addClassName = Magicbook.addClassName;
+
   function normalizeLang(lang) {
     if (!lang || !Prism.languages[lang]) {
       return 'bash';
@@ -17,8 +19,8 @@
       var $code = $($codes[index]);
       var codeClass = $code.attr('class') || 'language-bash';
 
-      Magicbook.addClassName($code, codeClass);
-      Magicbook.addClassName($code.parent(), codeClass);
+      addClassName($code, codeClass);
+      addClassName($code.parent(), codeClass);
     }
   }
 

@@ -13,7 +13,7 @@
     var catelogSelector = config.catelogSelector;
     var duration = config.duration;
     var gap = config.gap;
-    var idPrefix = Math.random().toString(36).substr(2);
+    var idPrefix = Magicbook.randomString();
 
     return function navigatorCallbackSucessForCarryCatelog() {
       var self = this;

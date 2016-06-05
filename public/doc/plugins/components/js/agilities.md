@@ -1,9 +1,9 @@
 ## agilities.js
-The **agilities** provides some infrastructure that includes **scroll to top**, **turn the page**.
+Provide some infrastructure features that includes **scroll to top**, **turn the page**.
 
 ### Usage
 #### Import Dependencies
-To use agilities, you’ll need to make sure `magicbook` are included.
+Make sure `magicbook` are included.
 ```html
   <link rel="stylesheet" type="text/css" href="plugins/components/css/agilities.min.css" />
 
@@ -43,6 +43,7 @@ Example below:
 ```js
   {magicbook instance}.agilities({
     turnPage: {
+      selector: 'ul li > *:first-child'  // specified selector to navigator's text
       prev: {
         label: 'prev'               // specified name of prev button if not specified selecotor
         selector: '.prev-selector'  // specified selector to turn the previous page
@@ -58,8 +59,8 @@ Example below:
 
 ### Methods
 #### next
-It provides next page turning.
+It provides next page turning. It will trigger `turnNext` event in `$container`.
 
 #### prev
-It provides prev page turning.
+It provides prev page turning. It will trigger `turnPrev` event in `$container`.
 
