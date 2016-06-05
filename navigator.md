@@ -1,5 +1,5 @@
 ## [magicbook](#)
-An lightweight and scalable docs system for markdown.
+An lightweight and scalable docs system for markdown, text or other.
 
 Author: [ipluser](https://github.com/ipluser)
 
