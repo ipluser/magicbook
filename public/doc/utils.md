@@ -104,6 +104,13 @@ Parse object to javascript array object.
 | obj     | object to parse |
 
 
+### randomString
+Returns a random string that includes 25 character.
+
+##### parameters
+none
+
+
 ### requestGet
 Http request with `get` type
 
