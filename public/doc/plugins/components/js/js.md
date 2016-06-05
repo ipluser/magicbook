@@ -1,14 +1,17 @@
-## Common Components Javascripts
-A range of common components javascripts.
+## Common Components Javascript
+A range of common components javascript.
 
 ### [agilities.js](#public/doc/plugins/components/js/agilities.md)
-The **agilities** provides some infrastructure that includes **scroll to top**, **turn the page**.
+Provide some infrastructure features that includes **scroll to top**, **turn the page**.
 
 ### [magicbook-plugin-catelog.js](#public/doc/plugins/components/js/magicbook-plugin-catelog.md)
-The **magicbook-plugin-catelog** auto to give the content catelog and move to the assigned content block.
+Add catelog for the content.
+
+### [magicbook-plugin-collapse.js](#public/doc/plugins/components/js/magicbook-plugin-collapse.md)
+Support collapse navigators.
 
 ### [magicbook-plugin-include.js](#public/doc/plugins/components/js/magicbook-plugin-include.md)
-The **magicbook-plugin-include** supports `include` template tag in document.
+Support `include` template tag in document.
 
 ### [magicbook-plugin-number.js](#public/doc/plugins/components/js/magicbook-plugin-number.md)
-The **magicbook-plugin-number** auto to give the navigator chapter number.
+Add chapter number for the navigators.

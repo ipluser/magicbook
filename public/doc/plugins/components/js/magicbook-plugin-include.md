@@ -1,9 +1,9 @@
 ## magicbook-plugin-include.js
-The **magicbook-plugin-include** supports `include` template tag in document.
+Support `include` template tag in document.
 
 ### usage
 #### Import Dependencies
-To use magicbook-plugin-include, you’ll need to make sure `magicbook` are included.
+Make sure `magicbook` are included.
 ```html
   <script src="plugins/components/js/magicbook-plugin-include.min.js"></script>
 ```

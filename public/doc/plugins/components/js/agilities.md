@@ -1,9 +1,9 @@
 ## agilities.js
-The **agilities** provides some infrastructure that includes **scroll to top**, **turn the page**.
+Provide some infrastructure features that includes **scroll to top**, **turn the page**.
 
 ### Usage
 #### Import Dependencies
-To use agilities, you’ll need to make sure `magicbook` are included.
+Make sure `magicbook` are included.
 ```html
   <link rel="stylesheet" type="text/css" href="plugins/components/css/agilities.min.css" />
 

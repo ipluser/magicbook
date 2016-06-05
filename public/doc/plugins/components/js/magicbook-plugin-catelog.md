@@ -1,9 +1,9 @@
 ## magicbook-plugin-catelog.js
-The **magicbook-plugin-catelog** auto to give the content catelog and move to the assigned content block.
+Add catelog for the content.
 
 ### Usage
 #### Import Dependencies
-To use magicbook-plugin-catelog, you’ll need to make sure `magicbook` are included.
+Make sure `magicbook` are included.
 ```html
   <link rel="stylesheet" type="text/css" href="plugins/components/css/magicbook-plugin-catelog.min.css" />
 

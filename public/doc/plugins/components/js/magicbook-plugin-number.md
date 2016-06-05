@@ -1,9 +1,9 @@
 ## magicbook-plugin-number.js
-The **magicbook-plugin-number** auto to give the navigator chapter number.
+Add chapter number for the navigators.
 
 ### Usage
 #### Import Dependencies
-To use magicbook-plugin-number, you’ll need to make sure `magicbook` are included.
+Make sure `magicbook` are included.
 ```html
 <link rel="stylesheet" type="text/css" href="plugins/components/css/magicbook-plugin-number.min.css" />
 
