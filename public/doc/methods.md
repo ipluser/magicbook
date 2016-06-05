@@ -46,13 +46,6 @@ Parsing content to some format after fetch resource.
 | data		| content of file |
 
 
-### randomString
-Returns a random string that includes 25 character.
-
-##### parameters
-none
-
-
 ### relativeCurrentUrl
 Solve assigned url to relative path from current url.
 
