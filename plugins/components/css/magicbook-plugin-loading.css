@@ -1,0 +1,17 @@
+.loading {
+  display: none;
+  position: absolute;
+  top: 45%;
+  left: 45%;
+  color: #4078c0;
+}
+
+@media (max-width: 768px) {
+  .magicbook-container > .magicbook-content-wrap {
+    position: relative;
+  }
+
+  .content-loading {
+    top: 240px;
+  }
+}
