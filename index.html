@@ -16,6 +16,7 @@
   <link rel="stylesheet" type="text/css" href="plugins/components/css/magicbook-plugin-number.min.css" />
   <link rel="stylesheet" type="text/css" href="plugins/components/css/magicbook-plugin-catelog.min.css" />
   <link rel="stylesheet" type="text/css" href="plugins/components/css/magicbook-plugin-collapse.min.css" />
+  <link rel="stylesheet" type="text/css" href="plugins/components/css/magicbook-plugin-loading.min.css" />
 </head>
 <body>
   <script src="public/js/jquery-1.11.0.min.js"></script>
@@ -28,6 +29,7 @@
   <script src="plugins/components/js/magicbook-plugin-number.min.js"></script>
   <script src="plugins/components/js/magicbook-plugin-catelog.min.js"></script>
   <script src="plugins/components/js/magicbook-plugin-collapse.min.js"></script>
+  <script src="plugins/components/js/magicbook-plugin-loading.min.js"></script>
   <script>
     var book = Magicbook.markdown('awesome', {
       homeUrl: 'public/doc/quick-start.md',
@@ -42,6 +44,7 @@
     book.numberNavigator({ selector: '#guide+ul' });
     book.collapseNavigator({ selector: '#guide+ul', expand: false });
     book.carryCatelog({ locationSelector: '.magicbook-content h2+p' });
+    book.animateLoading();
     book.show();
   </script>
 </body>

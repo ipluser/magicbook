@@ -32,11 +32,14 @@ A selector that contains navigator.
 
 
 ### navigatorCallbackQueue
-`navigatorCallbackQueue` to execute after navigator have been rendered that consist of a series of `Callback` object. `Callback` object has `success`, `fail` and `finally` function properties. Example below:
+`navigatorCallbackQueue` to execute after navigator have been rendered that consist of a series of `Callback` object. `Callback` object has `prepare`, ``success`, `fail` and `finally` function properties. Example below:
 
 ```js
 // It will be parsed to Array if not Array
 navigatorCallbackQueue: [{
+  prepare: function () {  // prepare to execute before request navigator's content.
+    // todo
+  },
   success: function (data) {
     // todo
   },
@@ -77,11 +80,14 @@ parseFilters: [{
 
 
 ### routeCallbackQueue
-`routeCallbackQueue ` to execute after navigator have been rendered that consist of a series of `Callback` object. `Callback` object has `success`, `fail` and `finally` function properties. Example below:
+`routeCallbackQueue ` to execute after navigator have been rendered that consist of a series of `Callback` object. `Callback` object has `prepare`, `success`, `fail` and `finally` function properties. Example below:
 
 ```js
 // It will be parsed into Array if not Array
 routeCallbackQueue: [{
+  prepare: function () {  // prepare to execute before request content.
+    // todo
+  },
   success: function (data) {
     // todo
   },

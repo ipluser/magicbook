@@ -68,6 +68,9 @@ Rendering content after handle resource.
 ```js
 // callback can be a Array of Callback object
 book.render('public/doc/quick-start.md', {
+  prepare: function () {  // prepare to execute before request content.
+    // todo
+  },
   success: function (data) {
     // todo
   },
@@ -94,6 +97,9 @@ Routing some resource that consist of handle resource and render.
 ```js
 // callback can be a Array of Callback object
 book.route('public/doc/quick-start.md', {
+  prepare: function () {  // prepare to execute before request content.
+    // todo
+  },
   success: function (data) {
     // todo
   },

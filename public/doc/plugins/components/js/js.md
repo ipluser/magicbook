@@ -13,5 +13,8 @@ Support collapse navigators.
 ### [magicbook-plugin-include.js](#public/doc/plugins/components/js/magicbook-plugin-include.md)
 Support `include` template tag in document.
 
+### [magicbook-plugin-loading.js](#public/doc/plugins/components/js/magicbook-plugin-loading.md)
+Support loading animation.
+
 ### [magicbook-plugin-number.js](#public/doc/plugins/components/js/magicbook-plugin-number.md)
 Add chapter number for the navigators.
