@@ -6,6 +6,8 @@
   var CLASS = 'navigator-collapse';
   var CLASS_CLOSE = CLASS + '--close';
   var CLASS_OPEN = CLASS + '--open';
+  var CLASS_TOGGLE = CLASS + '__toggle';
+  var ELEMENT_TOGGLE = '<span class="' + CLASS_TOGGLE + '"></span>';
 
   var defaults = {
     selector: 'ul',
@@ -22,10 +24,13 @@
 
       for (index = 0; index < len; index++) {
         var $item = $($items[index]);
+        var $text = $item.children(':first');
         var $children = $item.children('ul');
 
         if ($children.length) {
           addClassName($item, CLASS);
+
+          $text.after(ELEMENT_TOGGLE);
 
           !config.expand && $children.hide();
           addClassName($item, config.expand && CLASS_OPEN || CLASS_CLOSE);
@@ -72,7 +77,7 @@
         handle($($navs[index]));
       }
 
-      self.$navigatorWrap.on('click', '.navigator-collapse > a, .navigator-collapse > p', function collapseEvent(e) {
+      self.$navigatorWrap.on('click', '.navigator-collapse__toggle', function collapseEvent(e) {
         var $currentTarget = $(e.currentTarget);
         var href = $currentTarget.attr('href');
         if (!href || currentHash === href) {
