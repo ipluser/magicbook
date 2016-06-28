@@ -20,6 +20,11 @@ To use **Magicbook**, you’ll need to make sure both the Magicbook and jQuery s
   <script src="dist/magicbook.min.js"></script>
 ```
 
+***Note***
+
+Supports `AMD` and `CMD`.
+
+
 ### HTML
 ```html
   <div class="magicbook-container"></div>
@@ -35,3 +40,4 @@ To use **Magicbook**, you’ll need to make sure both the Magicbook and jQuery s
 
   book.show();
 ```
+
