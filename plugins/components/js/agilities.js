@@ -1,5 +1,18 @@
-;(function (global, $, Magicbook) {  // eslint-disable-line
+/* eslint-disable */
+(function(global, factory) {
+  if (!global.document) {
+    throw new Error('magicbook requires a window with a document');
+  }
 
+  if (typeof module === 'object' && typeof module.exports === 'object') {
+    module.exports = factory(require('jquery'), require('magicbookjs'), global);
+  } else if (typeof define === 'function' && define.amd) {
+    define(['jquery', 'magicbook'], factory($, Magicbook, global));
+  } else {
+    factory(global.jQuery, Magicbook, global);
+  }
+}(typeof window !== 'undefined' ? window : this, function($, Magicbook, global) {
+  /* eslint-enable */
   var globalLocation = global.location;
   var magicbookProto = Magicbook.potion;
   var addClassName = Magicbook.addClassName;
@@ -236,4 +249,4 @@
     initScrollTop.call(self, config.scrollTop);
     initTurnPage.call(self, config.turnPage);
   };
-})(window, jQuery, Magicbook);  // eslint-disable-line
+}));
